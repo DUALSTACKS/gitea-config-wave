@@ -1,7 +1,7 @@
 # 🌊 Gitea Config Wave
 
 <div align="center">
-  <img src="logo.png" alt="Gitea Config Wave Logo" width="150"/>
+  <img src="logo.png" alt="Gitea Config Wave Logo" width="300"/>
 </div>
 
 <br/>
