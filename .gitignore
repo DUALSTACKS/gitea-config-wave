@@ -23,3 +23,7 @@ go.work.sum
 
 # env file
 .env
+
+# gitea config
+gitea/
+gitea-config-wave
