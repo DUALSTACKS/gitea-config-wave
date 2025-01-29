@@ -13,7 +13,7 @@ import (
 var (
 	cfgFile string
 	version = "0.1.0"
-	log     *slog.Logger
+	logger  *slog.Logger
 )
 
 // Custom handler for colored output
@@ -118,8 +118,8 @@ var rootCmd = &cobra.Command{
 			handler := newColorHandler(os.Stdout, opts)
 			newLogger := slog.New(handler)
 			slog.SetDefault(newLogger)
-			log = newLogger
-			log.Debug("verbose logging enabled")
+			logger = newLogger
+			logger.Debug("verbose logging enabled")
 		}
 	},
 	Run: func(cmd *cobra.Command, args []string) {
@@ -130,7 +130,7 @@ var rootCmd = &cobra.Command{
 // Execute runs the root command
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
-		log.Error("failed to execute command",
+		logger.Error("failed to execute command",
 			"error", err,
 			"cmd", os.Args[0],
 		)
@@ -145,8 +145,8 @@ func init() {
 	}
 
 	handler := newColorHandler(os.Stdout, opts)
-	log = slog.New(handler)
-	slog.SetDefault(log)
+	logger = slog.New(handler)
+	slog.SetDefault(logger)
 
 	// Global --config flag
 	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "",

@@ -27,3 +27,4 @@ go.work.sum
 # gitea config
 gitea/
 gitea-config-wave
+dist/

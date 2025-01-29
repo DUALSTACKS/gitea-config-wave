@@ -14,7 +14,10 @@ x:
 	repomix
 
 pull:
-	./gitea-config-wave pull DUALSTACKS/test-gitea-config-wave --config gitea-config-wave.yaml
+	./gitea-config-wave pull DUALSTACKS/lol --config gitea-config-wave.yaml
 
 push:
 	./gitea-config-wave push --config gitea-config-wave.yaml
+
+release-test:
+	goreleaser release --snapshot --clean

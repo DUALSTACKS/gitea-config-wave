@@ -26,7 +26,7 @@ in the config file or in the command arguments.`,
 			return fmt.Errorf("could not parse --dry-run flag: %w", err)
 		}
 
-		cfg, err := loadConfig(cfgFile)
+		cfg, err := LoadConfig(cfgFile)
 		if err != nil {
 			return fmt.Errorf("failed to load config: %w", err)
 		}
@@ -44,15 +44,15 @@ in the config file or in the command arguments.`,
 			return errors.New("no repositories to process after merges/exclusions")
 		}
 
-		log.Info("computed target repositories", "count", len(targetRepos), "repos", targetRepos)
+		logger.Info("computed target repositories", "count", len(targetRepos), "repos", targetRepos)
 
 		outputDir := cfg.Config.OutputDir
 		if outputDir == "" {
-			outputDir = ".gitea/defaults"
+			outputDir = DefaultOutputDir
 		}
 
-		repoSettingsPath := filepath.Join(outputDir, "repo_settings.yaml")
-		branchProtectionsPath := filepath.Join(outputDir, "branch_protections.yaml")
+		repoSettingsPath := filepath.Join(outputDir, DefaultRepoSettingsFile)
+		branchProtectionsPath := filepath.Join(outputDir, DefaultBranchProtectionsFile)
 
 		localRepoSettings, err := readRepoSettings(repoSettingsPath)
 		if err != nil {
@@ -71,14 +71,14 @@ in the config file or in the command arguments.`,
 			}
 
 			if dryRun || cfg.DryRun {
-				log.Info("would push settings (dry run)",
+				logger.Info("would push settings (dry run)",
 					"owner", owner,
 					"repo", repo,
 				)
 				continue
 			}
 
-			log.Debug("updating repository settings",
+			logger.Debug("updating repository settings",
 				"owner", owner,
 				"repo", repo,
 			)
@@ -92,7 +92,7 @@ in the config file or in the command arguments.`,
 				return fmt.Errorf("unexpected status %d editing repo %s/%s", resp.StatusCode, owner, repo)
 			}
 
-			log.Debug("updating repository topics",
+			logger.Debug("updating repository topics",
 				"owner", owner,
 				"repo", repo,
 				"topics", localRepoSettings.Topics,
@@ -108,7 +108,7 @@ in the config file or in the command arguments.`,
 				return fmt.Errorf("failed to list existing branch protections for %s/%s: %w", owner, repo, err)
 			}
 
-			log.Debug("removing existing branch protections",
+			logger.Debug("removing existing branch protections",
 				"owner", owner,
 				"repo", repo,
 				"count", len(existingProtections),
@@ -122,7 +122,7 @@ in the config file or in the command arguments.`,
 				}
 			}
 
-			log.Debug("creating new branch protections",
+			logger.Debug("creating new branch protections",
 				"owner", owner,
 				"repo", repo,
 				"count", len(localBranchProtections),
@@ -160,7 +160,7 @@ in the config file or in the command arguments.`,
 				}
 			}
 
-			log.Info("successfully pushed settings",
+			logger.Info("successfully pushed settings",
 				"owner", owner,
 				"repo", repo,
 				"topics_count", len(localRepoSettings.Topics),

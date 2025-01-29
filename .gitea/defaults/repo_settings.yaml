@@ -1,23 +1,22 @@
 default_branch: main
 has_issues: true
 external_tracker:
-    externaltrackerurl: https://example.com
+    externaltrackerurl: https://jira.example.com
     externaltrackerformat: ""
     externaltrackerstyle: numeric
-has_wiki: true
+has_wiki: false
 has_pull_requests: true
-has_projects: true
+has_projects: false
 has_releases: true
 has_packages: true
-has_actions: true
+has_actions: false
 ignore_whitespace_conflicts: false
 allow_merge_commits: true
 allow_rebase: true
 allow_rebase_explicit: true
-allow_squash_merge: false
+allow_squash_merge: true
 default_delete_branch_after_merge: false
 default_merge_style: merge
 default_allow_maintainer_edit: false
 topics:
     - cool
-    - succking
