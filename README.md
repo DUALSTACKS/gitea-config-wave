@@ -1,10 +1,14 @@
 # 🌊 Gitea Config Wave
 
+<div align="center">
+  
 [![Build Status](https://github.com/DUALSTACKS/gitea-config-wave/workflows/build/badge.svg)](https://github.com/DUALSTACKS/gitea-config-wave/actions)
 [![Go Report Card](https://goreportcard.com/badge/github.com/DUALSTACKS/gitea-config-wave)](https://goreportcard.com/report/github.com/DUALSTACKS/gitea-config-wave)
 [![License](https://img.shields.io/github/license/DUALSTACKS/gitea-config-wave)](LICENSE)
 [![Release](https://img.shields.io/github/release/DUALSTACKS/gitea-config-wave.svg)](https://github.com/DUALSTACKS/gitea-config-wave/releases/latest)
 [![Go Version](https://img.shields.io/github/go-mod/go-version/DUALSTACKS/gitea-config-wave)](go.mod)
+
+</div>
 
 <div align="center">
   <img src="logo.png" alt="Gitea Config Wave Logo" width="300"/>
