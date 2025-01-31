@@ -1,9 +1,9 @@
 default_branch: main
 has_issues: true
 external_tracker:
-    externaltrackerurl: https://jira.example.com
-    externaltrackerformat: ""
-    externaltrackerstyle: numeric
+  externaltrackerurl: https://jira.example.com
+  externaltrackerformat: ""
+  externaltrackerstyle: alphanumeric
 has_wiki: false
 has_pull_requests: true
 has_projects: false
@@ -18,5 +18,4 @@ allow_squash_merge: true
 default_delete_branch_after_merge: false
 default_merge_style: merge
 default_allow_maintainer_edit: false
-topics:
-    - cool
+topics: []

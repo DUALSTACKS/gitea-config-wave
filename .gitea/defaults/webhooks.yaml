@@ -1,0 +1,19 @@
+hooks:
+  - id: 62
+    type: gitea
+    config:
+      content_type: json
+      url: https://webhook-test.com/053e2d68ffd022e92e4463d550a5f1fb
+    events:
+      - push
+      - pull_request
+      - pull_request_assign
+      - pull_request_label
+      - pull_request_milestone
+      - pull_request_comment
+      - pull_request_review_approved
+      - pull_request_review_rejected
+      - pull_request_review_comment
+      - pull_request_sync
+      - pull_request_review_request
+    active: false

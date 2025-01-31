@@ -1,9 +1,5 @@
-- [x] Load creds from env vars
-- [ ] Happy flow tests for pull/push
-- [ ] Test with multiple configs and different targets
-- [ ] Selecive pull/push of specific settings
-- [ ] Support Issue and PR templates
-- [ ] Support tag protections
-- [ ] Support webhooks
-- [ ] Debug mode
+- [x] Support webhooks
+- [ ] Add integration tests
+- [ ] Add support for Issues and PR templates
+- [ ] Add support for Tag Protections
 - [ ] Document required permissions for the token

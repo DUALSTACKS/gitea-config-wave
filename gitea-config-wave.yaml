@@ -1,13 +1,28 @@
 config:
-  # # Directory where the pulled config will be saved and from there it can be adjusted and pushed to the target repos; this will also allow people to have different config dumps for different repoes or groups of repoes
+  # where the setting files are stored
   output_dir: .gitea/defaults
+
+# what to pull from the target repos
+pull:
+  repo_settings: true
+  topics: true
+  branch_protections: true
+  webhooks: true
+
+# what to push to the target repos
+push:
+  repo_settings: true
+  topics: true
+  branch_protections: true
+  webhooks: true
 
 targets:
   autodiscover: true # if true, autodiscover repos from the organization
-  autodiscover_filter: "*" # filter for autodiscover
-  repos: [] # explicit list of repos to target; if both autodiscover and repos are set, they will be merged
-  exclude_repos: [] # list of repo names to exclude
+  organization: "DUALSTACKS" # name of the Gitea organization for autodiscovery
+  autodiscover_filter: "*" # filter to autodiscover repos in the organization; e.g. "*" to autodiscover all repos
+  repos: [] # explicit list of full-names of repos to target; if both autodiscover and repos are set, they will be merged, e.g. ["ORG/repo1", "ORG/repo2"]
+  exclude_repos: [] # list of full-names of repos to exclude; e.g. ["ORG/repo3", "ORG/repo4"]
 
-dry_run: false
 topics_update_strategy: "override" # possible values: "override", "merge"
 branch_protections_update_strategy: "override" # possible values: "override", "merge"
+webhooks_update_strategy: "override" # possible values: "override", "merge"

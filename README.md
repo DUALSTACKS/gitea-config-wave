@@ -1,5 +1,11 @@
 # 🌊 Gitea Config Wave
 
+[![Build Status](https://github.com/DUALSTACKS/gitea-config-wave/workflows/build/badge.svg)](https://github.com/DUALSTACKS/gitea-config-wave/actions)
+[![Go Report Card](https://goreportcard.com/badge/github.com/DUALSTACKS/gitea-config-wave)](https://goreportcard.com/report/github.com/DUALSTACKS/gitea-config-wave)
+[![License](https://img.shields.io/github/license/DUALSTACKS/gitea-config-wave)](LICENSE)
+[![Release](https://img.shields.io/github/release/DUALSTACKS/gitea-config-wave.svg)](https://github.com/DUALSTACKS/gitea-config-wave/releases/latest)
+[![Go Version](https://img.shields.io/github/go-mod/go-version/DUALSTACKS/gitea-config-wave)](go.mod)
+
 <div align="center">
   <img src="logo.png" alt="Gitea Config Wave Logo" width="300"/>
 </div>
@@ -10,17 +16,7 @@
 
 ## Project Status 🚧
 
-This project is in early development - use with caution in production environments. We're actively working on:
-
-- [ ] Issue and PR template sync
-- [ ] Tag protection rules
-- [ ] Webhook management
-- [ ] Debug mode
-- [x] Basic settings sync
-- [x] Branch protection rules
-- [ ] Setup CI/CD
-- [ ] Add contribution guide
-- [ ] Add badges
+This project is in early development - use with caution in production environments.
 
 ## What is this? 🤔
 
@@ -90,20 +86,7 @@ targets:
 
 ## Configuration 🛠️
 
-The tool uses a YAML configuration file with these key sections:
-
-```yaml
-config:
-  output_dir: .gitea/defaults  # Where settings are stored
-
-targets:
-  autodiscover: false              # Auto-find repos in org
-  autodiscover_filter: "*"         # Filter for autodiscovery
-  repos: ["org/repo1"]            # Explicit repo list
-  exclude_repos: []               # Repos to skip
-
-topics_update_strategy: "override" # or "merge"
-```
+The tool expects a `gitea-config-wave.yaml` file in the current directory. Refer to the [example configuration](./gitea-config-wave.yaml) for more details.
 
 ## Use Cases 💡
 
@@ -114,16 +97,17 @@ topics_update_strategy: "override" # or "merge"
 
 ## Project Status 🚧
 
-This project is in early development - use with caution in production environments. We're actively working on:
+This project is in early development - use with caution in production environments.
 
-- [ ] Issue and PR template sync
-- [ ] Tag protection rules
-- [ ] Webhook management
-- [ ] Debug mode
+## Backlog 📝
+
+- [x] Webhook management
 - [x] Basic settings sync
 - [x] Branch protection rules
-- [ ] Setup CI/CD
-- [ ] Add contribution guide
+- [ ] Issue and PR template sync
+- [ ] Tag protection rules
+- [ ] Distribute as Gitea Action
+
 
 ## Contributing 🤝
 
@@ -132,3 +116,15 @@ TODO:
 ## License 📝
 
 MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+Gitea Config Wave - An automated configuration management tool for Gitea instances that enables bulk repository settings management, branch protection rules enforcement, and standardized repository configurations through a simple CLI interface.
+
+
+<details>
+<summary></summary>
+<small>
+gitea organization-wide branch protection rules; gitea organization-wide repository settings; gitea bulk repository settings; gitea repository settings sync; bulk edit gitea topics; bulk edit gitea webhooks; bulk edit gitea branch protections; bulk edit gitea repo settings;
+</small>
+</details>
