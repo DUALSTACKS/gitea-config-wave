@@ -25,6 +25,7 @@ go.work.sum
 .env
 
 # gitea config
-gitea/
+gitea/*
+!gitea/app.ini
 gitea-config-wave
 dist/

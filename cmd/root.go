@@ -16,7 +16,6 @@ var (
 	logger  *slog.Logger
 )
 
-// Custom handler for colored output
 type colorHandler struct {
 	out    io.Writer
 	opts   *slog.HandlerOptions
@@ -34,7 +33,6 @@ func newColorHandler(w io.Writer, opts *slog.HandlerOptions) *colorHandler {
 	}
 }
 
-// getLevelColor returns the ANSI color code for the given log level
 func getLevelColor(level slog.Level) string {
 	switch level {
 	case slog.LevelError:
@@ -64,7 +62,6 @@ func (h *colorHandler) Handle(ctx context.Context, r slog.Record) error {
 	color := getLevelColor(r.Level)
 	reset := "\033[0m"
 
-	// Format the output: time LEVEL message key=value ...
 	fmt.Fprintf(h.out, "%s %s%5s%s %s",
 		timeStr,
 		color,
@@ -73,10 +70,8 @@ func (h *colorHandler) Handle(ctx context.Context, r slog.Record) error {
 		r.Message,
 	)
 
-	// Add attributes
 	if r.NumAttrs() > 0 {
 		r.Attrs(func(a slog.Attr) bool {
-			// Skip time attribute as we already formatted it
 			if a.Key == slog.TimeKey {
 				return true
 			}
@@ -106,7 +101,6 @@ func (h *colorHandler) WithGroup(name string) slog.Handler {
 	}
 }
 
-// rootCmd represents the base command for the gitea-config-wave CLI
 var rootCmd = &cobra.Command{
 	Use:   "gitea-config-wave",
 	Short: "A CLI for synchronizing Gitea repository settings",
@@ -127,7 +121,6 @@ var rootCmd = &cobra.Command{
 	},
 }
 
-// Execute runs the root command
 func Execute() {
 	if err := rootCmd.Execute(); err != nil {
 		logger.Error("failed to execute command",
@@ -139,7 +132,6 @@ func Execute() {
 }
 
 func init() {
-	// Initialize logger with custom handler for colored output
 	opts := &slog.HandlerOptions{
 		Level: slog.LevelInfo,
 	}

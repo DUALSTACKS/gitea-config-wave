@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  gitea:
+    image: gitea/gitea:1.21.11
+    container_name: gitea-test
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    restart: always
+    volumes:
+      - ./test/config/gitea/app.ini:/data/gitea/conf/app.ini
+      - gitea-data:/data
+    ports:
+      - "3001:3000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/healthz"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  create-admin:
+    image: gitea/gitea:1.21.11
+    user: git
+    environment:
+      - USER_UID=1000
+      - USER_GID=1000
+    depends_on:
+      gitea:
+        condition: service_healthy
+    volumes:
+      - ./test/config/gitea/app.ini:/data/gitea/conf/app.ini
+      - gitea-data:/data
+    entrypoint: ["/bin/sh", "-c"]
+    command: >
+      "gitea admin user create
+      --username integration-test
+      --password integration-test
+      --email integration-test@dualstacks.com
+      --admin
+      --must-change-password=false
+      --config /data/gitea/conf/app.ini"
+
+volumes:
+  gitea-data: 
+

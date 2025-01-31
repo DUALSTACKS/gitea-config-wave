@@ -8,14 +8,29 @@ type Config struct {
 	Config     struct {
 		OutputDir string `yaml:"output_dir" validate:"omitempty,dirpath"`
 	} `yaml:"config"`
+	Pull struct {
+		RepoSettings      bool `yaml:"repo_settings"`
+		Topics            bool `yaml:"topics"`
+		BranchProtections bool `yaml:"branch_protections"`
+		Webhooks          bool `yaml:"webhooks"`
+	} `yaml:"pull"`
+	Push struct {
+		RepoSettings      bool `yaml:"repo_settings"`
+		Topics            bool `yaml:"topics"`
+		BranchProtections bool `yaml:"branch_protections"`
+		Webhooks          bool `yaml:"webhooks"`
+	} `yaml:"push"`
 	Targets struct {
 		Autodiscover       bool     `yaml:"autodiscover"`
+		Organization       string   `yaml:"organization"`
 		AutodiscoverFilter string   `yaml:"autodiscover_filter"`
 		Repos              []string `yaml:"repos"`
 		ExcludeRepos       []string `yaml:"exclude_repos"`
 	} `yaml:"targets"`
-	DryRun               bool   `yaml:"dry_run"`
-	TopicsUpdateStrategy string `yaml:"topics_update_strategy"`
+	DryRun                          bool   `yaml:"dry_run"`
+	TopicsUpdateStrategy            string `yaml:"topics_update_strategy"`
+	BranchProtectionsUpdateStrategy string `yaml:"branch_protections_update_strategy"`
+	WebhooksUpdateStrategy          string `yaml:"webhooks_update_strategy"`
 }
 
 type RepoSettings struct {

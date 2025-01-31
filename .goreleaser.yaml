@@ -20,8 +20,11 @@ builds:
       - -s -w -X main.version={{.Version}}
 
 archives:
-  - format: binary
-    name_template: "{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}"
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    files:
+      - README.md
+      - LICENSE*
 
 changelog:
   sort: asc
@@ -34,20 +37,21 @@ changelog:
       - Merge pull request
       - Merge branch
 
-# brews:
-#   - name: gitea-config-wave
-#     homepage: "https://github.com/DUALSTACKS/gitea-config-wave"
-#     description: "CLI tool to manage Gitea repository settings at scale"
-#     repository:
-#       owner: DUALSTACKS
-#       name: homebrew-tap
-#     commit_author:
-#       name: goreleaserbot
-#       email: bot@goreleaser.com
-#     install: |
-#       bin.install "gitea-config-wave"
-#     test: |
-#       system "#{bin}/gitea-config-wave --version"
+brews:
+  - name: gitea-config-wave
+    homepage: "https://github.com/DUALSTACKS/gitea-config-wave"
+    description: "CLI tool to manage Gitea repository settings at scale"
+    repository:
+      owner: DUALSTACKS
+      name: homebrew-tap
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
+    commit_author:
+      name: goreleaserbot
+      email: bot@goreleaser.com
+    install: |
+      bin.install "gitea-config-wave"
+    test: |
+      system "#{bin}/gitea-config-wave --version"
 
 dockers:
   - image_templates:

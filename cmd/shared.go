@@ -37,17 +37,20 @@ func parseRepoString(input string) (string, string, error) {
 }
 
 func WriteYAMLFile(filePath string, data interface{}) error {
-	yamlData, err := yaml.Marshal(data)
-	if err != nil {
-		return fmt.Errorf("marshal YAML: %w", err)
-	}
-
 	if err := os.MkdirAll(filepath.Dir(filePath), 0755); err != nil {
 		return fmt.Errorf("create output directory: %w", err)
 	}
 
-	if err := os.WriteFile(filePath, yamlData, 0644); err != nil {
-		return fmt.Errorf("write file: %w", err)
+	f, err := os.Create(filePath)
+	if err != nil {
+		return fmt.Errorf("create file: %w", err)
+	}
+	defer f.Close()
+
+	encoder := yaml.NewEncoder(f)
+	encoder.SetIndent(2)
+	if err := encoder.Encode(data); err != nil {
+		return fmt.Errorf("marshal YAML: %w", err)
 	}
 	return nil
 }
