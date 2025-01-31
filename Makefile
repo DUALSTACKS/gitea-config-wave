@@ -8,6 +8,12 @@ up-base:
 down-base:
 	docker compose down
 
+up-test:
+	docker compose -f docker-compose.test.yml up -d
+
+down-test:
+	docker compose -f docker-compose.test.yml down -v
+
 build:
 	go build -o gitea-config-wave .
 
@@ -16,6 +22,10 @@ format:
 
 vet:
 	go vet ./...
+
+test: build up-test
+	go test -v ./test/integration/...
+	$(MAKE) down-test
 
 x:
 	repomix

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gitea-config-wave-config
+data:
+  gitea-config-wave.yaml: |
+    config:
+      output_dir: .gitea/defaults
+
+    pull:
+      repo_settings: true
+      topics: true
+      branch_protections: true
+      webhooks: true
+
+    push:
+      repo_settings: true
+      topics: true
+      branch_protections: true
+      webhooks: true
+
+    targets:
+      autodiscover: true
+      organization: "your-org-name"
+      autodiscover_filter: "*"
+      exclude_repos: []
+
+    topics_update_strategy: "merge"
+    branch_protections_update_strategy: "merge"
+    webhooks_update_strategy: "merge" 

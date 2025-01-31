@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: gitea-config-wave
+spec:
+  schedule: "0 0 * * *"  # Run at midnight every day
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 3
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: gitea-config-wave
+            image: ghcr.io/dualstacks/gitea-config-wave:latest  # Use specific version in production
+            args:
+            - push
+            - --no-color
+            env:
+            - name: GITEA_URL
+              value: "your-gitea-instance-url-here"
+            - name: GITEA_TOKEN
+              value: "your-gitea-token-here"
+            volumeMounts:
+            - name: config
+              mountPath: /app/gitea-config-wave.yaml
+              subPath: gitea-config-wave.yaml
+              readOnly: true
+          volumes:
+          - name: config
+            configMap:
+              name: gitea-config-wave-config
+          restartPolicy: OnFailure 
