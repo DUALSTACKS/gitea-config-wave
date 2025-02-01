@@ -1,0 +1,26 @@
+config:
+  output_dir: ./configs/production
+
+# what to push to the target repos
+push:
+  repo_settings: true
+  topics: true
+  branch_protections: true
+  webhooks: true
+
+targets:
+  # Production services with strict controls
+  repos: 
+    - "MyOrg/payment-service"
+    - "MyOrg/auth-service"
+    - "MyOrg/user-service"
+  # Also include all microservices
+  autodiscover: true
+  organization: "MyOrg"
+  autodiscover_filter: "*-service"
+  # Exclude services still in development
+  exclude_repos: 
+    - "MyOrg/deprecated-service"
+
+topics_update_strategy: "override"
+branch_protections_update_strategy: "override"

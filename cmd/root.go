@@ -150,10 +150,4 @@ func init() {
 
 	// Add --verbose flag for debug logging
 	rootCmd.PersistentFlags().BoolP("verbose", "v", false, "Enable verbose logging")
-
-	// Any other global flags would go here
-	// ...
-
-	// Subcommands must be added here. For example:
-	// rootCmd.AddCommand(pullCmd) // We'll do this from pull.go
 }

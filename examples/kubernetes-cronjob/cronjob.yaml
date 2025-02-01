@@ -12,23 +12,23 @@ spec:
       template:
         spec:
           containers:
-          - name: gitea-config-wave
-            image: ghcr.io/dualstacks/gitea-config-wave:latest  # Use specific version in production
-            args:
-            - push
-            - --no-color
-            env:
-            - name: GITEA_URL
-              value: "your-gitea-instance-url-here"
-            - name: GITEA_TOKEN
-              value: "your-gitea-token-here"
-            volumeMounts:
-            - name: config
-              mountPath: /app/gitea-config-wave.yaml
-              subPath: gitea-config-wave.yaml
-              readOnly: true
+            - name: gitea-config-wave
+              image: ghcr.io/dualstacks/gitea-config-wave:latest  # Use specific version in production
+              args:
+                - push
+                - --no-color
+              env:
+                - name: GITEA_URL
+                  value: "your-gitea-instance-url-here"
+                - name: GITEA_TOKEN
+                  value: "your-gitea-token-here"
+              volumeMounts:
+                - name: config
+                  mountPath: /app/gitea-config-wave.yaml
+                  subPath: gitea-config-wave.yaml
+                  readOnly: true
           volumes:
-          - name: config
-            configMap:
-              name: gitea-config-wave-config
-          restartPolicy: OnFailure 
+            - name: config
+              configMap:
+                name: gitea-config-wave-config
+          restartPolicy: OnFailure

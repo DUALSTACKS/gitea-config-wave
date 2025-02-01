@@ -1,0 +1,13 @@
+rules:
+  - branch_name: main
+    rule_name: basic-protection
+    enable_push: true
+    enable_status_check: true
+    status_check_contexts: 
+      - "ci/build"
+      - "test/unit"
+    required_approvals: 0
+    block_on_rejected_reviews: false
+    block_on_outdated_branch: false
+    dismiss_stale_approvals: false
+    require_signed_commits: false 

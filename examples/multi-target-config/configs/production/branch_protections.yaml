@@ -1,0 +1,20 @@
+rules:
+  - branch_name: main
+    rule_name: production-protection
+    enable_push: false
+    enable_push_whitelist: true
+    push_whitelist_teams: ["devops", "release-managers"]
+    enable_merge_whitelist: true
+    merge_whitelist_teams: ["developers", "senior-devs"]
+    enable_status_check: true
+    status_check_contexts: 
+      - "ci/build"
+      - "security/scan"
+      - "quality/sonar"
+      - "test/integration"
+    required_approvals: 2
+    block_on_rejected_reviews: true
+    block_on_outdated_branch: true
+    dismiss_stale_approvals: true
+    require_signed_commits: true
+    protected_file_patterns: "go.mod,go.sum,*.yaml,Dockerfile"
