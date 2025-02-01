@@ -51,13 +51,13 @@ brews:
     test: |
       system "#{bin}/gitea-config-wave --version"
 
-dockers:
-  - image_templates:
-      - "ghcr.io/dualstacks/gitea-config-wave:{{ .Version }}"
-      - "ghcr.io/dualstacks/gitea-config-wave:latest"
-    dockerfile: Dockerfile.goreleaser
-    build_flag_templates:
-      - "--label=org.opencontainers.image.created={{.Date}}"
-      - "--label=org.opencontainers.image.title={{.ProjectName}}"
-      - "--label=org.opencontainers.image.revision={{.FullCommit}}"
-      - "--label=org.opencontainers.image.version={{.Version}}"
+# dockers:
+#   - image_templates:
+#       - "ghcr.io/dualstacks/gitea-config-wave:{{ .Version }}"
+#       - "ghcr.io/dualstacks/gitea-config-wave:latest"
+#     dockerfile: Dockerfile.goreleaser
+#     build_flag_templates:
+#       - "--label=org.opencontainers.image.created={{.Date}}"
+#       - "--label=org.opencontainers.image.title={{.ProjectName}}"
+#       - "--label=org.opencontainers.image.revision={{.FullCommit}}"
+#       - "--label=org.opencontainers.image.version={{.Version}}"
