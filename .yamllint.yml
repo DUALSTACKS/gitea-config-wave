@@ -38,6 +38,6 @@ rules:
     max: 2
     max-start: 0
     max-end: 0
-  trailing-spaces: enable
+  trailing-spaces: disable
   truthy:
     allowed-values: ['true', 'false', 'yes', 'no']
