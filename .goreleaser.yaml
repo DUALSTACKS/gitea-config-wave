@@ -51,6 +51,7 @@ brews:
     test: |
       system "#{bin}/gitea-config-wave --version"
 
+# Temporarily commenting out Docker configuration
 # dockers:
 #   - image_templates:
 #       - "ghcr.io/dualstacks/gitea-config-wave:{{ .Version }}"
