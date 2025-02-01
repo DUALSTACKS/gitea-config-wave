@@ -12,9 +12,10 @@ import (
 
 var (
 	cfgFile string
-	version string
 	logger  *slog.Logger
 )
+
+var Version = "dev"
 
 type colorHandler struct {
 	out    io.Writer
@@ -105,7 +106,7 @@ var rootCmd = &cobra.Command{
 	Use:     "gitea-config-wave",
 	Short:   "A CLI for synchronizing Gitea repository settings",
 	Long:    `A lightweight CLI tool to automate the propagation of repository settings, branch protection rules, and more.`,
-	Version: version,
+	Version: Version,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		verbose, _ := cmd.Flags().GetBool("verbose")
 		if verbose {
