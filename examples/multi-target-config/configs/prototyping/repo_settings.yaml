@@ -1,0 +1,15 @@
+# Flexible settings for prototyping and experiments
+default_branch: "main"
+has_issues: true
+has_wiki: true   # Quick documentation
+has_pull_requests: true
+has_projects: true
+has_releases: false
+has_packages: false
+has_actions: true
+ignore_whitespace_conflicts: true
+allow_merge_commits: true  # All merge types allowed for experimentation
+allow_rebase: true
+allow_squash_merge: true
+allow_rebase_explicit: true
+default_merge_style: "merge"

@@ -1,0 +1,19 @@
+# Production-grade settings for service repositories
+default_branch: "main"
+has_issues: true
+has_wiki: false  # Documentation in central location
+has_pull_requests: true
+has_projects: true
+has_releases: true
+has_packages: true
+has_actions: true
+ignore_whitespace_conflicts: false
+allow_merge_commits: false  # Clean history required
+allow_rebase: false        # Only squash for clean history
+allow_squash_merge: true
+allow_rebase_explicit: false
+default_merge_style: "squash"
+external_tracker:
+  externaltrackerurl: "https://jira.myorg.com/browse/{user}/{repo}-{index}"
+  externaltrackerformat: "JIRA"
+  externaltrackerstyle: "numeric" 

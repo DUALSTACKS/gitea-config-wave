@@ -1,0 +1,22 @@
+config:
+  output_dir: ./configs/prototyping
+
+# what to push to the target repos
+push:
+  repo_settings: true
+  topics: true
+  branch_protections: true
+  webhooks: false
+
+targets:
+  # Prototyping and experimental projects
+  autodiscover: true
+  organization: "MyOrg"
+  autodiscover_filter: "experimental-*"
+  # Also include specific projects
+  repos:
+    - "MyOrg/feature-prototype"
+    - "MyOrg/poc-newtech"
+
+topics_update_strategy: "merge"
+branch_protections_update_strategy: "override" 

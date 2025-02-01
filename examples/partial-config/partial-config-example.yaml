@@ -1,0 +1,15 @@
+config:
+  # where the setting files are stored
+  output_dir: ./defaults
+
+# what to push to the target repos
+push:
+  repo_settings: true
+  topics: true
+  branch_protections: false
+  webhooks: false
+
+targets:
+  repos: ["DUALSTACKS/partial-config-example"]
+
+topics_update_strategy: "merge" # possible values: "override", "merge"

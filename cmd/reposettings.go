@@ -39,44 +39,60 @@ func (h *RepoSettingsHandler) Push(client *gitea.Client, owner, repo string, dat
 }
 
 func toRepoSettings(gr *gitea.Repository) *RepoSettings {
+	defaultBranch := gr.DefaultBranch
+	hasIssues := gr.HasIssues
+	hasWiki := gr.HasWiki
+	hasPullRequests := gr.HasPullRequests
+	hasProjects := gr.HasProjects
+	hasReleases := gr.HasReleases
+	hasPackages := gr.HasPackages
+	hasActions := gr.HasActions
+	ignoreWhitespaceConflicts := gr.IgnoreWhitespaceConflicts
+	allowMergeCommits := gr.AllowMerge
+	allowRebase := gr.AllowRebase
+	allowRebaseExplicit := gr.AllowRebaseMerge
+	allowSquashMerge := gr.AllowSquash
+	defaultDeleteBranchAfterMerge := false
+	defaultMergeStyle := string(gr.DefaultMergeStyle)
+	defaultAllowMaintainerEdit := false
+
 	return &RepoSettings{
-		DefaultBranch:                 gr.DefaultBranch,
-		HasIssues:                     gr.HasIssues,
+		DefaultBranch:                 &defaultBranch,
+		HasIssues:                     &hasIssues,
 		ExternalTracker:               gr.ExternalTracker,
-		HasWiki:                       gr.HasWiki,
-		HasPullRequests:               gr.HasPullRequests,
-		HasProjects:                   gr.HasProjects,
-		HasReleases:                   gr.HasReleases,
-		HasPackages:                   gr.HasPackages,
-		HasActions:                    gr.HasActions,
-		IgnoreWhitespaceConflicts:     gr.IgnoreWhitespaceConflicts,
-		AllowMergeCommits:             gr.AllowMerge,
-		AllowRebase:                   gr.AllowRebase,
-		AllowRebaseExplicit:           gr.AllowRebaseMerge,
-		AllowSquashMerge:              gr.AllowSquash,
-		DefaultDeleteBranchAfterMerge: false,
-		DefaultMergeStyle:             string(gr.DefaultMergeStyle),
-		DefaultAllowMaintainerEdit:    false,
+		HasWiki:                       &hasWiki,
+		HasPullRequests:               &hasPullRequests,
+		HasProjects:                   &hasProjects,
+		HasReleases:                   &hasReleases,
+		HasPackages:                   &hasPackages,
+		HasActions:                    &hasActions,
+		IgnoreWhitespaceConflicts:     &ignoreWhitespaceConflicts,
+		AllowMergeCommits:             &allowMergeCommits,
+		AllowRebase:                   &allowRebase,
+		AllowRebaseExplicit:           &allowRebaseExplicit,
+		AllowSquashMerge:              &allowSquashMerge,
+		DefaultDeleteBranchAfterMerge: &defaultDeleteBranchAfterMerge,
+		DefaultMergeStyle:             &defaultMergeStyle,
+		DefaultAllowMaintainerEdit:    &defaultAllowMaintainerEdit,
 	}
 }
 
 func toEditRepoOption(rs *RepoSettings) gitea.EditRepoOption {
-	defaultBranch := rs.DefaultBranch // Create a copy to get address of
 	return gitea.EditRepoOption{
-		DefaultBranch:             &defaultBranch,
-		HasIssues:                 &rs.HasIssues,
+		DefaultBranch:             rs.DefaultBranch,
+		HasIssues:                 rs.HasIssues,
 		ExternalTracker:           rs.ExternalTracker,
-		HasWiki:                   &rs.HasWiki,
-		HasPullRequests:           &rs.HasPullRequests,
-		HasProjects:               &rs.HasProjects,
-		HasReleases:               &rs.HasReleases,
-		HasPackages:               &rs.HasPackages,
-		HasActions:                &rs.HasActions,
-		IgnoreWhitespaceConflicts: &rs.IgnoreWhitespaceConflicts,
-		AllowMerge:                &rs.AllowMergeCommits,
-		AllowRebase:               &rs.AllowRebase,
-		AllowRebaseMerge:          &rs.AllowRebaseExplicit,
-		AllowSquash:               &rs.AllowSquashMerge,
+		HasWiki:                   rs.HasWiki,
+		HasPullRequests:           rs.HasPullRequests,
+		HasProjects:               rs.HasProjects,
+		HasReleases:               rs.HasReleases,
+		HasPackages:               rs.HasPackages,
+		HasActions:                rs.HasActions,
+		IgnoreWhitespaceConflicts: rs.IgnoreWhitespaceConflicts,
+		AllowMerge:                rs.AllowMergeCommits,
+		AllowRebase:               rs.AllowRebase,
+		AllowRebaseMerge:          rs.AllowRebaseExplicit,
+		AllowSquash:               rs.AllowSquashMerge,
 	}
 }
 

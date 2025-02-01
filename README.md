@@ -178,47 +178,22 @@ repository_settings:
   default_merge_style: "rebase"
 ```
 
+## Examples 💡
+
+Check out the `examples/` directory for complete usage scenarios:
+
+- `partial-config/`: How to update only specific settings while preserving others
+- `multi-target-config/`: Managing different configurations for internal vs open source repositories
+- `kubernetes-cronjob/`: Running gitea-config-wave as a Kubernetes CronJob
+
 ## Configuration 🛠️
 
 The tool expects a `gitea-config-wave.yaml` file in the current directory. Refer to the [example configuration](./gitea-config-wave.yaml) for more details.
 
 ## Use Cases 💡
 
-- Setting up consistent branch protection rules across repos
-- Configuring external issue trackers (e.g., Jira) for multiple repos
-- Maintaining uniform PR and issue templates
-- Enforcing organization-wide repository settings
+Check out the `examples/` directory for real-world usage scenarios:
 
-## Project Status 🚧
-
-This project is in early development - use with caution in production environments.
-
-## Backlog 📝
-
-- [x] Webhook management
-- [x] Basic settings sync
-- [x] Branch protection rules
-- [ ] Issue and PR template sync
-- [ ] Tag protection rules
-- [ ] Distribute as Gitea Action
-
-
-## Contributing 🤝
-
-TODO:
-
-## License 📝
-
-MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-Gitea Config Wave - An automated configuration management tool for Gitea instances that enables bulk repository settings management, branch protection rules enforcement, and standardized repository configurations through a simple CLI interface.
-
-
-<details>
-<summary></summary>
-<small>
-gitea organization-wide branch protection rules; gitea organization-wide repository settings; gitea bulk repository settings; gitea repository settings sync; bulk edit gitea topics; bulk edit gitea webhooks; bulk edit gitea branch protections; bulk edit gitea repo settings;
-</small>
-</details>
+- `partial-config/`: How to update only specific settings while preserving others
+- `multi-target-config/`: Managing different configurations for internal vs open source repositories
+- `kubernetes-cronjob/`: Running gitea-config-wave as a Kubernetes CronJob
