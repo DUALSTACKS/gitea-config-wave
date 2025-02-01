@@ -1,0 +1,43 @@
+extends: default
+
+rules:
+  # 2 space indentation
+  indentation:
+    spaces: 2
+    indent-sequences: true
+    check-multi-line-strings: false
+
+  # Line length
+  line-length:
+    max: 120
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+
+  # Comments
+  comments:
+    require-starting-space: true
+    min-spaces-from-content: 2
+
+  # Other rules
+  braces:
+    min-spaces-inside: 0
+    max-spaces-inside: 0
+  brackets:
+    min-spaces-inside: 0
+    max-spaces-inside: 0
+  colons:
+    max-spaces-before: 0
+    max-spaces-after: 1
+  commas:
+    max-spaces-before: 0
+    min-spaces-after: 1
+    max-spaces-after: 1
+  document-start:
+    present: false
+  empty-lines:
+    max: 2
+    max-start: 0
+    max-end: 0
+  trailing-spaces: enable
+  truthy:
+    allowed-values: ['true', 'false', 'yes', 'no'] 
