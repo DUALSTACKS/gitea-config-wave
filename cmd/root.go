@@ -12,7 +12,7 @@ import (
 
 var (
 	cfgFile string
-	version = "0.1.0"
+	version string
 	logger  *slog.Logger
 )
 
@@ -102,9 +102,10 @@ func (h *colorHandler) WithGroup(name string) slog.Handler {
 }
 
 var rootCmd = &cobra.Command{
-	Use:   "gitea-config-wave",
-	Short: "A CLI for synchronizing Gitea repository settings",
-	Long:  `A lightweight CLI tool to automate the propagation of repository settings, branch protection rules, and more.`,
+	Use:     "gitea-config-wave",
+	Short:   "A CLI for synchronizing Gitea repository settings",
+	Long:    `A lightweight CLI tool to automate the propagation of repository settings, branch protection rules, and more.`,
+	Version: version,
 	PersistentPreRun: func(cmd *cobra.Command, args []string) {
 		verbose, _ := cmd.Flags().GetBool("verbose")
 		if verbose {
