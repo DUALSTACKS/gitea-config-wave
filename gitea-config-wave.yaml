@@ -20,7 +20,10 @@ targets:
   autodiscover: true # if true, autodiscover repos from the organization
   organization: "DUALSTACKS" # name of the Gitea organization for autodiscovery
   autodiscover_filter: "*" # filter to autodiscover repos in the organization; e.g. "*" to autodiscover all repos
-  repos: [] # explicit list of full-names of repos to target; if both autodiscover and repos are set, they will be merged, e.g. ["ORG/repo1", "ORG/repo2"]
+  
+  # explicit list of full-names of repos to target; if both autodiscover and repos are set,
+  # they will be merged, e.g. ["ORG/repo1", "ORG/repo2"]
+  repos: []
   exclude_repos: [] # list of full-names of repos to exclude; e.g. ["ORG/repo3", "ORG/repo4"]
 
 topics_update_strategy: "override" # possible values: "override", "merge"

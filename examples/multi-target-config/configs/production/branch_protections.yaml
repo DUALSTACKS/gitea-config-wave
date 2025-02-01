@@ -17,4 +17,4 @@ rules:
     block_on_outdated_branch: true
     dismiss_stale_approvals: true
     require_signed_commits: true
-    protected_file_patterns: "go.mod,go.sum,*.yaml,Dockerfile" 
+    protected_file_patterns: "go.mod,go.sum,*.yaml,Dockerfile"

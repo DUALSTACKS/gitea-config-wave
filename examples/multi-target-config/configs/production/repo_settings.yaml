@@ -16,4 +16,4 @@ default_merge_style: "squash"
 external_tracker:
   externaltrackerurl: "https://jira.myorg.com/browse/{user}/{repo}-{index}"
   externaltrackerformat: "JIRA"
-  externaltrackerstyle: "numeric" 
+  externaltrackerstyle: "numeric"

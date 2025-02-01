@@ -23,4 +23,4 @@ targets:
     - "MyOrg/deprecated-service"
 
 topics_update_strategy: "override"
-branch_protections_update_strategy: "override" 
+branch_protections_update_strategy: "override"
