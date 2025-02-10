@@ -16,6 +16,5 @@ allow_rebase: true
 allow_rebase_explicit: true
 allow_squash_merge: true
 default_delete_branch_after_merge: false
-default_merge_style: merge
+default_merge_style: squash
 default_allow_maintainer_edit: false
-topics: []

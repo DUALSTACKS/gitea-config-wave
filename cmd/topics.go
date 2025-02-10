@@ -41,39 +41,42 @@ func (h *TopicsHandler) Push(client *gitea.Client, owner, repo string, data inte
 		return nil
 	}
 
-	// Get global config
 	cfg, err := LoadConfig(cfgFile)
 	if err != nil {
 		return fmt.Errorf("failed to load config: %w", err)
 	}
 
-	// If strategy is override, just set the topics directly
-	if cfg.TopicsUpdateStrategy == "override" {
+	strategy := cfg.TopicsUpdateStrategy
+	if err := h.validateUpdateStrategy(strategy); err != nil {
+		return err
+	}
+
+	if strategy == UpdateStrategyReplace {
 		_, err := client.SetRepoTopics(owner, repo, topicsConfig.Topics)
 		return err
 	}
 
-	// Otherwise merge with existing topics
-	existingTopics, _, err := client.ListRepoTopics(owner, repo, gitea.ListRepoTopicsOptions{})
-	if err != nil {
-		return fmt.Errorf("failed to list existing topics: %w", err)
+	for _, topic := range topicsConfig.Topics {
+		_, err := client.AddRepoTopic(owner, repo, topic)
+		if err != nil {
+			return err
+		}
 	}
 
-	topicsMap := make(map[string]bool)
-	for _, t := range existingTopics {
-		topicsMap[t] = true
-	}
-	for _, t := range topicsConfig.Topics {
-		topicsMap[t] = true
+	return nil
+}
+
+func (h *TopicsHandler) validateUpdateStrategy(strategy UpdateStrategy) error {
+	supported := map[UpdateStrategy]bool{
+		UpdateStrategyReplace: true,
+		UpdateStrategyAppend:  true,
 	}
 
-	mergedTopics := make([]string, 0, len(topicsMap))
-	for t := range topicsMap {
-		mergedTopics = append(mergedTopics, t)
+	if _, ok := supported[strategy]; !ok {
+		return fmt.Errorf("invalid topic_update_strategy: %s (must be 'replace' or 'append')", strategy)
 	}
 
-	_, err = client.SetRepoTopics(owner, repo, mergedTopics)
-	return err
+	return nil
 }
 
 func (h *TopicsHandler) Enabled() bool {

@@ -153,3 +153,37 @@ func init() {
 	// Add --verbose flag for debug logging
 	rootCmd.PersistentFlags().BoolP("verbose", "v", false, "Enable verbose logging")
 }
+
+type Config struct {
+	GiteaURL   string `yaml:"gitea_url" validate:"required,url"`
+	GiteaToken string `yaml:"gitea_token" validate:"required"`
+	Config     struct {
+		OutputDir string `yaml:"output_dir" validate:"omitempty,dirpath"`
+	} `yaml:"config"`
+	Pull struct {
+		RepoSettings      bool `yaml:"repo_settings"`
+		Topics            bool `yaml:"topics"`
+		BranchProtections bool `yaml:"branch_protections"`
+		TagProtections    bool `yaml:"tag_protections"`
+		Webhooks          bool `yaml:"webhooks"`
+	} `yaml:"pull"`
+	Push struct {
+		RepoSettings      bool `yaml:"repo_settings"`
+		Topics            bool `yaml:"topics"`
+		BranchProtections bool `yaml:"branch_protections"`
+		TagProtections    bool `yaml:"tag_protections"`
+		Webhooks          bool `yaml:"webhooks"`
+	} `yaml:"push"`
+	Targets struct {
+		Autodiscover       bool     `yaml:"autodiscover"`
+		Organization       string   `yaml:"organization"`
+		AutodiscoverFilter string   `yaml:"autodiscover_filter"`
+		Repos              []string `yaml:"repos"`
+		ExcludeRepos       []string `yaml:"exclude_repos"`
+	} `yaml:"targets"`
+	DryRun                          bool           `yaml:"dry_run"`
+	TopicsUpdateStrategy            UpdateStrategy `yaml:"topics_update_strategy"`
+	BranchProtectionsUpdateStrategy UpdateStrategy `yaml:"branch_protections_update_strategy"`
+	TagProtectionsUpdateStrategy    UpdateStrategy `yaml:"tag_protections_update_strategy"`
+	WebhooksUpdateStrategy          UpdateStrategy `yaml:"webhooks_update_strategy"`
+}

@@ -64,6 +64,10 @@ in the config file or in the command arguments.`,
 		if cfg.Push.Webhooks {
 			handlers = append(handlers, &WebhooksHandler{})
 		}
+		// TODO: Not supported yet
+		// if cfg.Push.TagProtections {
+		// 	handlers = append(handlers, &TagProtectionsHandler{})
+		// }
 
 		if len(handlers) == 0 {
 			logger.Info("🤷 no items enabled in push config - nothing to do")
@@ -84,7 +88,6 @@ in the config file or in the command arguments.`,
 				continue
 			}
 
-			// Process each handler for this repository
 			for _, handler := range handlers {
 				if !handler.Enabled() {
 					continue

@@ -10,6 +10,27 @@ import (
 
 type RepoSettingsHandler struct{}
 
+type RepoSettings struct {
+	DefaultBranch                 *string                `yaml:"default_branch,omitempty"`
+	HasIssues                     *bool                  `yaml:"has_issues,omitempty"`
+	ExternalTracker               *gitea.ExternalTracker `yaml:"external_tracker,omitempty"`
+	HasWiki                       *bool                  `yaml:"has_wiki,omitempty"`
+	HasPullRequests               *bool                  `yaml:"has_pull_requests,omitempty"`
+	HasProjects                   *bool                  `yaml:"has_projects,omitempty"`
+	HasReleases                   *bool                  `yaml:"has_releases,omitempty"`
+	HasPackages                   *bool                  `yaml:"has_packages,omitempty"`
+	HasActions                    *bool                  `yaml:"has_actions,omitempty"`
+	IgnoreWhitespaceConflicts     *bool                  `yaml:"ignore_whitespace_conflicts,omitempty"`
+	AllowMergeCommits             *bool                  `yaml:"allow_merge_commits,omitempty"`
+	AllowRebase                   *bool                  `yaml:"allow_rebase,omitempty"`
+	AllowRebaseExplicit           *bool                  `yaml:"allow_rebase_explicit,omitempty"`
+	AllowSquashMerge              *bool                  `yaml:"allow_squash_merge,omitempty"`
+	DefaultDeleteBranchAfterMerge *bool                  `yaml:"default_delete_branch_after_merge,omitempty"`
+	DefaultMergeStyle             *string                `yaml:"default_merge_style,omitempty"`
+	DefaultAllowMaintainerEdit    *bool                  `yaml:"default_allow_maintainer_edit,omitempty"`
+	Topics                        []string               `yaml:"topics,omitempty"`
+}
+
 func (h *RepoSettingsHandler) Name() string {
 	return "repository settings"
 }

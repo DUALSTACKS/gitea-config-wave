@@ -56,6 +56,9 @@ saves them to YAML files in the output directory (defaults to .gitea/defaults).`
 		if cfg.Pull.Webhooks {
 			handlers = append(handlers, &WebhooksHandler{})
 		}
+		// if cfg.Pull.TagProtections {
+		// 	handlers = append(handlers, &TagProtectionsHandler{})
+		// }
 
 		if len(handlers) == 0 {
 			logger.Info("🤷 no items enabled in pull config - nothing to do")
