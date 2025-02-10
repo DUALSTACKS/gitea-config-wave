@@ -29,10 +29,16 @@ targets:
   exclude_repos: [] # list of full-names of repos to exclude; e.g. ["ORG/repo3", "ORG/repo4"]
 
 
-# replace - wipe remote branch protections entirely and push yaml config as full new state
-# append - only add branch protections from yaml config that don’t yet exist remotely, without modifying or deleting current branch protections
-# merge - only add branch protections from the YAML that don’t yet exist remotely, without modifying or deleting current branch protections
-branch_protections_update_strategy: "merge"
-tag_protections_update_strategy: "append"
-topics_update_strategy: "append"
-webhooks_update_strategy: "append"
+# Update strategies:
+#
+# replace: Wipe remote branch protections entirely and push YAML config as full new state
+
+# append:  Only add branch protections from YAML config that don't yet exist remotely,
+#         without modifying or deleting current branch protections
+
+# merge:   Only add branch protections from YAML that don't yet exist remotely,
+#         without modifying or deleting current branch protections
+branch_protections_update_strategy: "merge" # -> supported: replace, merge, append
+tag_protections_update_strategy: "append" # -> supported: replace, merge, append
+topics_update_strategy: "append" # -> supported: replace, append
+webhooks_update_strategy: "append" # -> supported: replace, merge, append
