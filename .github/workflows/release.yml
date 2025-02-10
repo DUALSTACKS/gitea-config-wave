@@ -27,6 +27,13 @@ jobs:
       - name: Run tests
         run: go test -v ./...
 
+      - name: Docker login
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
