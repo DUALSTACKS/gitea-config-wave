@@ -1,0 +1,60 @@
+# Git
+.git
+.gitignore
+.github
+
+# IDE and editor files
+.idea
+.vscode
+*.swp
+*.swo
+*~
+
+# Build and binary files
+dist
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+gitea-config-wave
+
+# Go specific
+go.work
+
+# Docker files
+Dockerfile*
+docker-compose.yml
+.dockerignore
+
+# Environment and config files
+.env
+.env.*
+!.env.example
+
+# Documentation and misc
+README.md
+BACKLOG.md
+LICENSE
+*.md
+logo.png
+
+# Test files
+*_test.go
+testdata
+
+# Development artifacts
+repomix-output.txt
+
+# Local configuration
+.yamllint.yml
+.goreleaser.yaml
+
+# Examples and defaults
+examples/
+.gitea/
+
+# Temporary files
+tmp/
+*.tmp
+*.log
