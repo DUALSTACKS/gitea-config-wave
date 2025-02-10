@@ -29,3 +29,6 @@ gitea/*
 !gitea/app.ini
 gitea-config-wave
 dist/
+
+# repomix
+repomix-output.txt

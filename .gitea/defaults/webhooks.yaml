@@ -1,9 +1,9 @@
 hooks:
-  - id: 62
+  - id: 4
     type: gitea
     config:
-      content_type: json
-      url: https://webhook-test.com/053e2d68ffd022e92e4463d550a5f1fb
+      content_type: form
+      url: https://webhook-test.com:111
     events:
       - push
       - pull_request
@@ -16,4 +16,4 @@ hooks:
       - pull_request_review_comment
       - pull_request_sync
       - pull_request_review_request
-    active: false
+    active: true

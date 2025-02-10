@@ -20,3 +20,24 @@ rules:
     block_on_outdated_branch: true
     dismiss_stale_approvals: true
     require_signed_commits: true
+  - branch_name: stage
+    rule_name: stage
+    enable_push: false
+    enable_push_whitelist: false
+    push_whitelist_usernames: []
+    push_whitelist_teams: []
+    push_whitelist_deploy_keys: false
+    enable_merge_whitelist: false
+    merge_whitelist_usernames: []
+    merge_whitelist_teams: []
+    enable_status_check: false
+    status_check_contexts: []
+    required_approvals: 0
+    enable_approvals_whitelist: false
+    approvals_whitelist_usernames: []
+    approvals_whitelist_teams: []
+    block_on_rejected_reviews: false
+    block_on_official_review_requests: false
+    block_on_outdated_branch: false
+    dismiss_stale_approvals: false
+    require_signed_commits: false

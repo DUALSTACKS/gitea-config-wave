@@ -7,6 +7,7 @@ pull:
   repo_settings: true
   topics: true
   branch_protections: true
+  tag_protections: true
   webhooks: true
 
 # what to push to the target repos
@@ -14,6 +15,7 @@ push:
   repo_settings: true
   topics: true
   branch_protections: true
+  tag_protections: true
   webhooks: true
 
 targets:
@@ -26,6 +28,11 @@ targets:
   repos: []
   exclude_repos: [] # list of full-names of repos to exclude; e.g. ["ORG/repo3", "ORG/repo4"]
 
-topics_update_strategy: "override" # possible values: "override", "merge"
-branch_protections_update_strategy: "override" # possible values: "override", "merge"
-webhooks_update_strategy: "override" # possible values: "override", "merge"
+
+# replace - wipe remote branch protections entirely and push yaml config as full new state
+# append - only add branch protections from yaml config that don’t yet exist remotely, without modifying or deleting current branch protections
+# merge - only add branch protections from the YAML that don’t yet exist remotely, without modifying or deleting current branch protections
+branch_protections_update_strategy: "merge"
+tag_protections_update_strategy: "append"
+topics_update_strategy: "append"
+webhooks_update_strategy: "append"

@@ -33,7 +33,7 @@ x:
 	repomix
 
 pull:
-	./gitea-config-wave pull DUALSTACKS/reference-repo --config gitea-config-wave.yaml
+	./gitea-config-wave pull DUALSTACKS/.gitea --config gitea-config-wave.yaml
 
 push:
 	./gitea-config-wave push --config gitea-config-wave.yaml
