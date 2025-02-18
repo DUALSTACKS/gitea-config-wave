@@ -45,6 +45,7 @@ Gitea Config Wave provides a simple CLI to pull settings from a "canonical" repo
 - 📤 **Push Settings**: Apply settings to multiple repos at once
 - 🛡️ **Branch Protection**: Sync branch protection rules across repos
 - 🎯 **Repository Settings**: Manage core repo settings and topics
+- 📋 **Issue & PR Templates**: Sync issue and pull request templates across Gitea repositories
 - 🔍 **Dry Run Mode**: Preview changes before applying them
 - 🤖 **Automation Ready**: Perfect for CI/CD pipelines
 
@@ -162,6 +163,18 @@ branch_protections:
     status_check_contexts: ["ci/jenkins"]
     require_signed_commits: true
 ```
+
+### Issue and PR Templates
+
+Gitea Config Wave supports syncing issue and pull request templates across repositories. Templates can be stored in any of the [officially supported locations](https://docs.gitea.com/usage/issue-pull-request-templates), including:
+
+- `.gitea/ISSUE_TEMPLATE/`
+- `.gitea/PULL_REQUEST_TEMPLATE/`
+- `.github/ISSUE_TEMPLATE/`
+- `.github/PULL_REQUEST_TEMPLATE/`
+- etc (check the [Gitea docs](https://docs.gitea.com/usage/issue-pull-request-templates) for more info)
+
+When you run `pull`, it will extract templates from your source repository and store them in YAML format. When you run `push`, it will open a PR to create or update the templates in all target repositories.
 
 ### Repository Settings
 

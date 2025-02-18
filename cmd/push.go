@@ -64,10 +64,15 @@ in the config file or in the command arguments.`,
 		if cfg.Push.Webhooks {
 			handlers = append(handlers, &WebhooksHandler{})
 		}
+
 		// TODO: Not supported yet
 		// if cfg.Push.TagProtections {
 		// 	handlers = append(handlers, &TagProtectionsHandler{})
 		// }
+
+		if cfg.Push.Templates {
+			handlers = append(handlers, &TemplatesHandler{})
+		}
 
 		if len(handlers) == 0 {
 			logger.Info("🤷 no items enabled in push config - nothing to do")

@@ -19,7 +19,7 @@ rules:
     block_on_official_review_requests: false
     block_on_outdated_branch: true
     dismiss_stale_approvals: true
-    require_signed_commits: true
+    require_signed_commits: false
   - branch_name: stage
     rule_name: stage
     enable_push: false

@@ -59,6 +59,9 @@ saves them to YAML files in the output directory (defaults to .gitea/defaults).`
 		// if cfg.Pull.TagProtections {
 		// 	handlers = append(handlers, &TagProtectionsHandler{})
 		// }
+		if cfg.Pull.Templates {
+			handlers = append(handlers, &TemplatesHandler{})
+		}
 
 		if len(handlers) == 0 {
 			logger.Info("🤷 no items enabled in pull config - nothing to do")
