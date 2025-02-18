@@ -1,6 +1,32 @@
 issue_templates:
   - path: .gitea/issue_template.md
-    content: "### Issue Description\n[Provide a clear and concise description of the issue]\n\n### Expected Behavior\n[Describe what you expected to happen]\n\n### Current Behavior\n[Describe what actually happened]\n\n### Steps to Reproduce\n1. [First Step]\n2. [Second Step]\n3. [Third Step]\n\n### Environment\n- OS: \n- Browser:\n- Version:\n\n### Additional Context\n[Add any other relevant information or screenshots here]\n\n### Checklist\n- [ ] I have searched for similar issues\n- [ ] I have provided all necessary information\n- [ ] I have added appropriate labels\n"
+    content: |
+      ### Issue Description
+      [Provide a clear and concise description of the issue]
+
+      ### Expected Behavior
+      [Describe what you expected to happen]
+
+      ### Current Behavior
+      [Describe what actually happened]
+
+      ### Steps to Reproduce
+      1. [First Step]
+      2. [Second Step]
+      3. [Third Step]
+
+      ### Environment
+      - OS:
+      - Browser:
+      - Version:
+
+      ### Additional Context
+      [Add any other relevant information or screenshots here]
+
+      ### Checklist
+      - [ ] I have searched for similar issues
+      - [ ] I have provided all necessary information
+      - [ ] I have added appropriate labels
 
 issue_configs:
   - path: .gitea/ISSUE_TEMPLATE/config.yaml
