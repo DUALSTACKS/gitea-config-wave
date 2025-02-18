@@ -1,5 +1,0 @@
-- [x] Support webhooks
-- [ ] Add integration tests
-- [ ] Add support for Issues and PR templates
-- [ ] Add support for Tag Protections
-- [ ] Document required permissions for the token

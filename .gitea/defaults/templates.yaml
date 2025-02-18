@@ -1,0 +1,60 @@
+issue_templates:
+  - path: .gitea/issue_template.md
+    content: |
+      ### Issue Description
+      [Provide a clear and concise description of the issue]
+
+      ### Expected Behavior
+      [Describe what you expected to happen]
+
+      ### Current Behavior
+      [Describe what actually happened]
+
+      ### Steps to Reproduce
+      1. [First Step]
+      2. [Second Step]
+      3. [Third Step]
+
+      ### Environment
+      - OS:
+      - Browser:
+      - Version:
+
+      ### Additional Context
+      [Add any other relevant information or screenshots here]
+
+      ### Checklist
+      - [ ] I have searched for similar issues
+      - [ ] I have provided all necessary information
+      - [ ] I have added appropriate labels
+
+issue_configs:
+  - path: .gitea/ISSUE_TEMPLATE/config.yaml
+    content: |
+      blank_issues_enabled: false
+      contact_links:
+        - name: Gitea Docs
+          url: https://docs.gitea.com
+          about: Visit the official Gitea docs site
+
+pr_templates:
+  - path: .gitea/PULL_REQUEST_TEMPLATE.md
+    content: |
+      ## PR Type
+
+      What kind of change does this PR introduce?
+
+      ```
+      [ ] Bugfix
+      [ ] Feature
+      [ ] Code style update (formatting, local variables)
+      [ ] Refactoring (no functional changes, no api changes)
+      [ ] Build related changes
+      [ ] CI related changes
+      [ ] Documentation content changes
+      [ ] Tests
+      [ ] Other
+      ```
+
+      ## What's new?
+      -

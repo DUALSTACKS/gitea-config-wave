@@ -166,6 +166,7 @@ type Config struct {
 		BranchProtections bool `yaml:"branch_protections"`
 		TagProtections    bool `yaml:"tag_protections"`
 		Webhooks          bool `yaml:"webhooks"`
+		Templates         bool `yaml:"templates"`
 	} `yaml:"pull"`
 	Push struct {
 		RepoSettings      bool `yaml:"repo_settings"`
@@ -173,6 +174,7 @@ type Config struct {
 		BranchProtections bool `yaml:"branch_protections"`
 		TagProtections    bool `yaml:"tag_protections"`
 		Webhooks          bool `yaml:"webhooks"`
+		Templates         bool `yaml:"templates"`
 	} `yaml:"push"`
 	Targets struct {
 		Autodiscover       bool     `yaml:"autodiscover"`

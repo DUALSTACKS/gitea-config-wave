@@ -9,6 +9,7 @@ pull:
   branch_protections: true
   tag_protections: true
   webhooks: true
+  templates: true
 
 # what to push to the target repos
 push:
@@ -17,6 +18,7 @@ push:
   branch_protections: true
   tag_protections: true
   webhooks: true
+  templates: true
 
 targets:
   autodiscover: true # if true, autodiscover repos from the organization
